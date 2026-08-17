@@ -78,4 +78,4 @@ Four relationships tests prove every one of 112,650 fact rows resolves to a real
 ```
 ---
 ### SETUP 
- Please see the SETUP.md file for reproduction.
+ Please see the [SETUP.md](SETUP.md) file for reproduction.
