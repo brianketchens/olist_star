@@ -1,0 +1,21 @@
+# models/staging/_sources.yml
+# Declares the RAW tables you loaded into Snowflake so dbt can reference them.
+# {{ source('olist','orders') }} compiles to OLIST_RAW.RAW.OLIST_ORDERS_DATASET
+version: 2
+
+sources:
+  - name: olist
+    database: OLIST_RAW
+    schema: RAW
+    tables:
+      - name: orders
+        identifier: olist_orders_dataset
+      - name: order_items
+        identifier: olist_order_items_dataset
+      - name: customers
+        identifier: olist_customers_dataset
+      - name: products
+        identifier: olist_products_dataset
+      - name: sellers
+        identifier: olist_sellers_dataset
+    

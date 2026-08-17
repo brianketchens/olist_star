@@ -1,0 +1,55 @@
+# models/marts/_marts_schema.yml
+version: 2
+
+models:
+  - name: dim_customer
+    columns:
+      - name: customer_sk
+        tests: [unique, not_null]      # a dimension's surrogate must be unique
+
+  - name: dim_product
+    columns:
+      - name: product_sk
+        tests: [unique, not_null]
+
+  - name: dim_seller
+    columns:
+      - name: seller_sk
+        tests: [unique, not_null]
+
+  - name: dim_date
+    columns:
+      - name: date_sk
+        tests: [unique, not_null]
+
+  - name: fct_order_items
+    columns:
+
+      - name: customer_sk
+        tests:
+          - not_null
+          - relationships:              # ← THE star-integrity test
+              arguments:
+                to: ref('dim_customer')   # every FK in the fact must exist in the dim
+                field: customer_sk
+      - name: product_sk
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_sk
+      - name: seller_sk
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_seller')
+                field: seller_sk
+      - name: date_sk
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_sk

@@ -1,0 +1,7 @@
+raw_data/
+target/
+dbt_packages/
+logs/
+.env
+profiles.yml
+**/profiles.yml
