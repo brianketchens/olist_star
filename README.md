@@ -2,6 +2,7 @@
 #### A dbt + Snowflake star schema modeling the Olist Brazilian e-commerce dataset, with tested referential integrity.
 
 ![Lineage Graph](docs/img/DAG.PNG "Figure 1")
+
 *Figure 1: dbt Lineage Graph. A modular transformation pipeline of raw Olist source tables to staging views to star schema marts surrounded by dimensions.*
 
 > **Note:** Date dimension **`dim_date`** is generated from the `date_spine` macro rather than a source. This is why there is no upstream source.
